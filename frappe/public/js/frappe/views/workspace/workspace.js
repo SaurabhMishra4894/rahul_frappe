@@ -78,9 +78,16 @@ frappe.views.Workspace = class Workspace {
 	}
 
 	make_sidebar() {
+		this.sidebar_categories = ["Modules"]
 		this.sidebar_categories.forEach(category => {
 			if (this.workspaces[category]) {
-				this.build_sidebar_section(category, this.workspaces[category]);
+				var restricted_category = [
+					{category: 'Modules', icon: 'crm', label: 'CRM', module: 'CRM', name: 'CRM'},
+					{category: 'Modules', icon: 'project', label: 'Projects', module: 'Projects', name: 'Projects'},
+					{category: 'Modules', icon: 'support', label: 'Support', module: 'Support', name: 'Support'}
+				]
+
+				this.build_sidebar_section(category, restricted_category);
 			}
 		});
 	}

@@ -50,7 +50,7 @@ def get_context(context):
 	context["app_name"] = (
 		frappe.db.get_single_value("Website Settings", "app_name")
 		or frappe.get_system_settings("app_name")
-		or _("Frappe")
+		or _("Encriptive")
 	)
 	providers = [
 		i.name

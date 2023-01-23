@@ -491,7 +491,7 @@ def reset_otp_secret(user):
 		email_args = {
 			"recipients": user_email,
 			"sender": None,
-			"subject": _("OTP Secret Reset - {0}").format(otp_issuer or "Frappe Framework"),
+			"subject": _("OTP Secret Reset - {0}").format(otp_issuer or "Encriptive Framework"),
 			"message": _(
 				"<p>Your OTP secret on {0} has been reset. If you did not perform this reset and did not request it, please contact your System Administrator immediately.</p>"
 			).format(otp_issuer or "Frappe Framework"),
