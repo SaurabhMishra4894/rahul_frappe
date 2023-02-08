@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-07 13:09:16.785841",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tenant",
+  "rent_year",
+  "rent_month",
+  "tenant_name",
+  "concerned_property",
+  "occupied_room",
+  "previous_dues",
+  "base_rent",
+  "previous_electrical_unit",
+  "current_electrical_unit",
+  "unit_consumed",
+  "charge_per_unit",
+  "total_electrical_bill",
+  "misc_charges",
+  "total_rent",
+  "amount_paid",
+  "dues",
+  "mode_of_payment",
+  "date_of_payment",
+  "paid_to",
+  "column_break_21",
+  "gas_charges",
+  "water_charges",
+  "electricity_charges",
+  "property_overview"
+ ],
+ "fields": [
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant"
+  },
+  {
+   "fieldname": "rent_year",
+   "fieldtype": "Data",
+   "label": "Rent Year"
+  },
+  {
+   "fieldname": "rent_month",
+   "fieldtype": "Data",
+   "label": "Rent Month"
+  },
+  {
+   "fetch_from": "tenant.tenant_name",
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "label": "Tenant Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.concerned_property",
+   "fieldname": "concerned_property",
+   "fieldtype": "Data",
+   "label": "Concerned Property",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.occupied_room",
+   "fieldname": "occupied_room",
+   "fieldtype": "Data",
+   "label": "Occupied Room",
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_dues",
+   "fieldtype": "Currency",
+   "label": "Previous Dues"
+  },
+  {
+   "fetch_from": "tenant.base_rent",
+   "fieldname": "base_rent",
+   "fieldtype": "Currency",
+   "label": "Base Rent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_electrical_unit",
+   "fieldtype": "Float",
+   "label": "Previous Electrical Unit"
+  },
+  {
+   "fieldname": "current_electrical_unit",
+   "fieldtype": "Float",
+   "label": "Current Electrical Unit"
+  },
+  {
+   "fieldname": "unit_consumed",
+   "fieldtype": "Float",
+   "label": "Unit Consumed"
+  },
+  {
+   "fieldname": "charge_per_unit",
+   "fieldtype": "Currency",
+   "label": "Charge Per Unit"
+  },
+  {
+   "fieldname": "total_electrical_bill",
+   "fieldtype": "Currency",
+   "label": "Total Electrical Bill"
+  },
+  {
+   "fieldname": "misc_charges",
+   "fieldtype": "Currency",
+   "label": "Misc Charges"
+  },
+  {
+   "fieldname": "total_rent",
+   "fieldtype": "Currency",
+   "label": "Total Rent"
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "Amount Paid"
+  },
+  {
+   "fieldname": "dues",
+   "fieldtype": "Currency",
+   "label": "Dues"
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Data",
+   "label": "Mode of Payment"
+  },
+  {
+   "fieldname": "date_of_payment",
+   "fieldtype": "Date",
+   "label": "Date of Payment"
+  },
+  {
+   "fieldname": "paid_to",
+   "fieldtype": "Data",
+   "label": "Paid To"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gas_charges",
+   "fieldtype": "Currency",
+   "label": "Gas Charges"
+  },
+  {
+   "fieldname": "water_charges",
+   "fieldtype": "Currency",
+   "label": "Water Charges"
+  },
+  {
+   "fieldname": "electricity_charges",
+   "fieldtype": "Currency",
+   "label": "Electricity Charges"
+  },
+  {
+   "fieldname": "property_overview",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property Overview",
+   "options": "Property Overview",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-02-09 03:20:22.268065",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Tenant Bill Overview",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

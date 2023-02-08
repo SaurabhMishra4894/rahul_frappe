@@ -12,3 +12,4 @@ Data Migration
 Social
 Automation
 Event Streaming
+Tenant Management
