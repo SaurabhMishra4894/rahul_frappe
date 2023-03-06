@@ -11,13 +11,46 @@ from frappe import responses
 
 
 class PropertyOverview(Document):
-	def after_save(self):
-		tenants = frappe.db.get_all("Tenant", fields="*", filters= {"status": "Active Tenant",
-			"concerned_property": self.name})
+	def after_insert(self):
+		tenants = frappe.db.get_all("Tenant", fields="*", filters={"status": "Active Tenant",
+																   "concerned_property": self.property})
 		for tenant in tenants:
-			tenant_overview = frappe.new_doc("Tenant Overview")
-			if frappe.db.exists("Tenant Overview", {"rent_year": self.year, "rent_month": self.month,"tenant":tenant.name}):
-				tenant_overview = frappe.get_doc("Tenant Overview", {"rent_year": self.year, "rent_month": self.month,"tenant":tenant.name})
+			tenant_overview = frappe.new_doc("Tenant Bill Overview")
+			property = frappe.get_doc("Property", tenant.concerned_property)
+			if frappe.db.exists("Tenant Bill Overview",
+								{"rent_year": self.year, "rent_month": self.month, "tenant": tenant.name}):
+				tenant_overview = frappe.get_doc("Tenant Bill Overview", {"rent_year": self.year, "rent_month": self.month,
+																	 "tenant": tenant.name})
+			tenant_overview.tenant = tenant.name
+			tenant_overview.rent_year = self.year
+			tenant_overview.rent_month = self.month
+			tenant_overview.tenant_name = tenant.tenant_name
+			tenant_overview.concerned_property = tenant.concerned_property
+			tenant_overview.occupied_room = tenant.occupied_room
+			tenant_overview.base_rent = tenant.base_rent
+			tenant_overview.previous_electrical_unit = ""
+			tenant_overview.current_electrical_unit = ""
+			tenant_overview.unit_consumed = ""
+			tenant_overview.charge_per_unit = property.charge_per_unitelectricity
+			tenant_overview.total_electrical_bill = ""
+			tenant_overview.misc_charges = ""
+			tenant_overview.total_rent = ""
+			tenant_overview.amount_paid = ""
+			tenant_overview.dues = ""
+			tenant_overview.mode_of_payment = ""
+			tenant_overview.date_of_payment = ""
+			tenant_overview.paid_to = ""
+			if property.divide_gas_and_water_bill_equally == "Yes":
+				tenant_overview.gas_charges = float(self.total_gas_bills) / len(tenants)
+				tenant_overview.water_charges = float(self.total_water_bills) / len(tenants)
+				tenant_overview.electricity_charges = float(self.total_electical_bills) / len(tenants)
+			tenant_overview.property_overview = self.name
+			tenant_overview.save()
+			frappe.db.commit()
+		return {
+			'status': 200,
+			'message': "Successful",
+		}
 
 
 def create_tenants_overview():

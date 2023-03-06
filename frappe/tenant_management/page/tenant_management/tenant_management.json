@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2023-02-18 05:15:04.358843",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2023-02-24 22:38:39.758954",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "tenant-management",
+ "owner": "Administrator",
+ "page_name": "tenant-management",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Tenant Management"
+}

@@ -162,6 +162,7 @@ body[data-route^="Module"] .main-menu {
 .layout-side-section {
 	font-size: var(--text-md);
 	padding-right: 30px;
+	display: none;
 
 	> .divider {
 		display: none !important;

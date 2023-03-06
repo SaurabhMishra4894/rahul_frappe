@@ -2,6 +2,7 @@
 	display: flex;
 	align-items: center;
 	.sidebar-toggle-btn {
+		visibility:hidden !important;
 		display: flex;
 		margin-right: var(--margin-sm);
 		cursor: pointer;

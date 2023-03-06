@@ -1,21 +1,25 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:P-{#####}",
+ "autoname": "field:property_id",
  "creation": "2023-02-03 01:38:48.819009",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "property_id",
   "property_name",
   "property_address",
+  "total_room_available",
   "occupied_rooms",
   "vacant_rooms",
   "column_break_5",
   "delhi_jal_board_kno_number",
   "gas_bp_number",
   "bses_ca_number",
-  "divide_gas_and_water_bill_equally"
+  "divide_gas_bill_equally",
+  "divide_water_bill_equally",
+  "charge_per_unitelectricity"
  ],
  "fields": [
   {
@@ -39,6 +43,7 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Vacant Rooms",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -68,16 +73,41 @@
    "fieldtype": "Column Break"
   },
   {
+   "fieldname": "charge_per_unitelectricity",
+   "fieldtype": "Currency",
+   "label": "Charge Per Unit(Electricity)"
+  },
+  {
    "default": "Yes",
-   "fieldname": "divide_gas_and_water_bill_equally",
+   "fieldname": "divide_gas_bill_equally",
    "fieldtype": "Select",
-   "label": "Divide Gas and Water Bill Equally",
+   "label": "Divide Gas Bill Equally",
    "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "divide_water_bill_equally",
+   "fieldtype": "Select",
+   "label": "Divide Water Bill Equally",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "property_id",
+   "fieldtype": "Data",
+   "label": "Property ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_room_available",
+   "fieldtype": "Int",
+   "label": "Total Room Available",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-07 14:06:19.658707",
+ "modified": "2023-02-18 01:01:01.180989",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property",

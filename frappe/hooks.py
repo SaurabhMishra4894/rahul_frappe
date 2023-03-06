@@ -23,7 +23,8 @@ translator_url = "https://translate.erpnext.com"
 before_install = "frappe.utils.install.before_install"
 after_install = "frappe.utils.install.after_install"
 
-page_js = {"setup-wizard": "public/js/frappe/setup_wizard.js"}
+page_js = {"setup-wizard": "public/js/frappe/setup_wizard.js",
+		   "tenant-management": "public/js/frappe/Chart.js"}
 
 # website
 app_include_js = [
@@ -69,7 +70,6 @@ notification_config = "frappe.core.notifications.get_notification_config"
 before_tests = "frappe.utils.install.before_tests"
 
 email_append_to = ["Event", "ToDo", "Communication"]
-
 
 calendars = ["Event"]
 

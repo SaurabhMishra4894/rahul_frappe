@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "EMP-.#####",
+ "creation": "2023-02-11 16:08:21.721743",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_name",
+  "status",
+  "photo",
+  "permanent_address",
+  "verification_ids",
+  "salary",
+  "date_of_joining",
+  "contract"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "permanent_address",
+   "fieldtype": "Text",
+   "label": "Permanent Address"
+  },
+  {
+   "fieldname": "verification_ids",
+   "fieldtype": "Attach",
+   "label": "Verification ID's"
+  },
+  {
+   "fieldname": "salary",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Salary",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Joining",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Attach",
+   "label": "Contract"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nInActive"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-03-07 03:40:03.540121",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Employee",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "employee_name",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
