@@ -41,6 +41,7 @@ class PropertyOverview(Document):
 			tenant_overview.date_of_payment = ""
 			tenant_overview.paid_to = ""
 			if property.divide_gas_and_water_bill_equally == "Yes":
+				tenant_overview_per_day_cost = perDayCost(property.name)
 				tenant_overview.gas_charges = float(self.total_gas_bills) / len(tenants)
 				tenant_overview.water_charges = float(self.total_water_bills) / len(tenants)
 				tenant_overview.electricity_charges = float(self.total_electical_bills) / len(tenants)
@@ -51,6 +52,21 @@ class PropertyOverview(Document):
 			'status': 200,
 			'message': "Successful",
 		}
+
+
+def perDayCost(property):
+	property = frappe.get_doc("Property" , property)
+	tenants = frappe.db.get_all("Tenant", fields="*", filters={"status": "Active Tenant",
+																   "concerned_property": property})
+	for tenant in tenants:
+		if frappe.db.exists("Tenant Bill Overview", {"tenant": tenant}):
+			pass
+		else:
+			pass
+
+
+
+
 
 
 def create_tenants_overview():
@@ -71,7 +87,7 @@ def parse_args(args, error_message=None):
 @frappe.whitelist(allow_guest=True)
 def return_property_list():
 	frappe.session.user = "Administrator"
-	data = frappe.db.get_all("Property", fields="*")
+	data = frappe.db.get_all("Property", fields="*", filter={"payment_cycle_date": datetime.now().date})
 	return data
 
 

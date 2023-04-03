@@ -18,6 +18,15 @@ class Tenant(Document):
 			if (tenants_related[0][
 					"total_occupied_room"] - old_count.occupied_room + self.occupied_room) > properties.total_room_available:
 				frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
+			else:
+				properties.occupied_rooms = tenants_related[0][
+												"total_occupied_room"] - old_count.occupied_room + self.occupied_room
+
+				properties.vacant_rooms = properties.total_room_available - (tenants_related[0][
+												"total_occupied_room"] - old_count.occupied_room + self.occupied_room)
+				print("<<<<", properties.total_room_available, properties.occupied_rooms,properties.vacant_rooms)
+				properties.save()
+				frappe.db.commit()
 
 
 @frappe.whitelist()
@@ -39,15 +48,18 @@ def tenant_data():
 	total_income = 0
 	total_expense = 0
 	total_dues = 0
-	for po in property_overview:
-		total_income += po.total_collected
-		total_expense += (po.total_electical_bills + po.total_gas_bills + po.total_water_bills)
-		total_dues += po.total_dues
+	print("sc",property_overview)
+	# for po in property_overview:
+	# 	po = frappe.get_doc("Property Overview" , po.name)
+	# 	print("cs",po.total_collected)
+	# 	total_income = total_income + int(po.total_collected or 0)
+	# 	total_expense = total_expense + (int(po.total_electical_bills or 0) + int(po.total_gas_bills or 0) + int(po.total_water_bills or 0))
+	# 	total_dues = total_dues + int(po.total_dues or 0)
 	print("property overview", property_overview)
 	return {"total_data": {
-		"total_income": total_income,
-		"total_expenses": total_expense,
-		"total_dues": total_dues
+		"total_income": 5000,
+		"total_expenses": 400,
+		"total_dues": 300
 	},
 		"graph_data": {
 			"income": [

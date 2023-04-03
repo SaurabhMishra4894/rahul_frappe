@@ -19,7 +19,8 @@
   "bses_ca_number",
   "divide_gas_bill_equally",
   "divide_water_bill_equally",
-  "charge_per_unitelectricity"
+  "charge_per_unitelectricity",
+  "payment_cycle_date"
  ],
  "fields": [
   {
@@ -103,11 +104,18 @@
    "fieldtype": "Int",
    "label": "Total Room Available",
    "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "payment_cycle_date",
+   "fieldtype": "Select",
+   "label": "Payment Cycle Date",
+   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-18 01:01:01.180989",
+ "modified": "2023-03-27 14:35:09.158578",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property",

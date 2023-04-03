@@ -6,7 +6,7 @@ from frappe.model.document import Document
 
 class Property(Document):
 	def validate(self):
-		if self.occupied_rooms < self.total_room_available:
+		if self.occupied_rooms > self.total_room_available:
 			frappe.throw("Occupied rooms can't be greater than total room available")
 
 @frappe.whitelist()
