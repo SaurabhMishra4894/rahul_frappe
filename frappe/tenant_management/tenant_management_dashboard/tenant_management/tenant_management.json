@@ -1,0 +1,21 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Tenant Rent",
+   "width": "Half"
+  }
+ ],
+ "creation": "2023-02-12 00:44:54.997778",
+ "dashboard_name": "Tenant Management",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2023-02-12 00:44:54.997778",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Tenant Management",
+ "owner": "Administrator"
+}

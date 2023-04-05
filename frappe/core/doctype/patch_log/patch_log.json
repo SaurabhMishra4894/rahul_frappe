@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2013-01-17 11:36:45",
+ "description": "List of patches executed",
+ "doctype": "DocType",
+ "document_type": "System",
+ "engine": "InnoDB",
+ "field_order": [
+  "patch"
+ ],
+ "fields": [
+  {
+   "fieldname": "patch",
+   "fieldtype": "Code",
+   "label": "Patch"
+  }
+ ],
+ "icon": "fa fa-cog",
+ "idx": 1,
+ "links": [],
+ "modified": "2023-01-20 12:50:51.090249",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "Patch Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator"
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

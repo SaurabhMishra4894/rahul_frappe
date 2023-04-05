@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TE-{tenant_name}-{###}",
+ "creation": "2023-02-03 01:23:10.359067",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tenant_name",
+  "status",
+  "permanent_address",
+  "column_break_4",
+  "date_of_joining",
+  "verification_id",
+  "contract",
+  "photo",
+  "security_deposit",
+  "base_rent",
+  "concerned_property",
+  "room_number",
+  "occupied_room"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tenant Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active Tenant\nEx-tenant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "permanent_address",
+   "fieldtype": "Text",
+   "label": "Permanent Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of joining",
+   "reqd": 1
+  },
+  {
+   "fieldname": "verification_id",
+   "fieldtype": "Attach",
+   "label": "Verification ID"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Attach",
+   "label": "Contract"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit"
+  },
+  {
+   "fieldname": "base_rent",
+   "fieldtype": "Currency",
+   "label": "Base Rent"
+  },
+  {
+   "columns": 2,
+   "fieldname": "concerned_property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Concerned Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "occupied_room",
+   "fieldtype": "Int",
+   "label": "Occupied Rooms"
+  },
+  {
+   "fieldname": "room_number",
+   "fieldtype": "Data",
+   "label": "Room Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-03-04 01:10:42.165043",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Tenant",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

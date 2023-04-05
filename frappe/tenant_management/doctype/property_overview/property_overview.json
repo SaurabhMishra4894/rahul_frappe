@@ -1,0 +1,305 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:P-{#####}",
+ "creation": "2023-02-03 02:34:15.459275",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "property",
+  "month",
+  "year",
+  "property_name",
+  "property_address",
+  "occupied_rooms",
+  "vacant_rooms",
+  "column_break_6",
+  "total_dues",
+  "total_collected_this_month",
+  "total_electical_bills",
+  "total_gas_bills",
+  "total_water_bills",
+  "delhi_jal_board_section",
+  "bill_name",
+  "bill_address",
+  "water_bill_date",
+  "column_break_18",
+  "bill_due_date",
+  "bill_number",
+  "bill_amount",
+  "indraprastha_gas_limited_section",
+  "gas_bill_name",
+  "ca_number",
+  "amount_before_due_date",
+  "column_break_26",
+  "bill_date",
+  "amount_after_due_date",
+  "amount_to_be_paid",
+  "bses_rajdhani_section",
+  "total_demand",
+  "pending_settlement",
+  "installment_not_yet_due",
+  "column_break_33",
+  "due_date",
+  "total_payable"
+ ],
+ "fields": [
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Property",
+   "options": "Property",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "property.property_name",
+   "fieldname": "property_name",
+   "fieldtype": "Data",
+   "label": "Property Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "property.property_address",
+   "fieldname": "property_address",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Property Address",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "property.occupied_rooms",
+   "fieldname": "occupied_rooms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Occupied Rooms",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "property.vacant_rooms",
+   "fieldname": "vacant_rooms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Vacant Rooms",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_dues",
+   "fieldtype": "Currency",
+   "label": "Total Dues"
+  },
+  {
+   "fieldname": "total_collected_this_month",
+   "fieldtype": "Currency",
+   "label": "Total Collected"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_electical_bills",
+   "fieldtype": "Currency",
+   "label": "Total Electical Bills",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_gas_bills",
+   "fieldtype": "Currency",
+   "label": "Total Gas Bills",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_water_bills",
+   "fieldtype": "Currency",
+   "label": "Total Water Bills",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Month",
+   "options": "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Year",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "delhi_jal_board_section",
+   "fieldtype": "Section Break",
+   "label": "Delhi Jal Board",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_name",
+   "fieldtype": "Data",
+   "label": "Bill Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_address",
+   "fieldtype": "Data",
+   "label": "Bill Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "water_bill_date",
+   "fieldtype": "Data",
+   "label": "Bill Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_due_date",
+   "fieldtype": "Data",
+   "label": "Bill Due Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_number",
+   "fieldtype": "Data",
+   "label": "Bill Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_amount",
+   "fieldtype": "Data",
+   "label": "Bill Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "indraprastha_gas_limited_section",
+   "fieldtype": "Section Break",
+   "label": "Indraprastha Gas Limited",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ca_number",
+   "fieldtype": "Data",
+   "label": "CA Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_before_due_date",
+   "fieldtype": "Data",
+   "label": "Amount Before Due Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_date",
+   "fieldtype": "Data",
+   "label": "Bill Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_after_due_date",
+   "fieldtype": "Data",
+   "label": "Amount After Due Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_to_be_paid",
+   "fieldtype": "Data",
+   "label": "Amount To Be Paid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bses_rajdhani_section",
+   "fieldtype": "Section Break",
+   "label": "BSES Rajdhani",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_demand",
+   "fieldtype": "Data",
+   "label": "Total Demand",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pending_settlement",
+   "fieldtype": "Data",
+   "label": "Pending Settlement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "installment_not_yet_due",
+   "fieldtype": "Data",
+   "label": "Installment Not Yet Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Data",
+   "label": "Due Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_payable",
+   "fieldtype": "Data",
+   "label": "Total Payable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_33",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gas_bill_name",
+   "fieldtype": "Data",
+   "label": "Bill Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-02-18 05:11:25.138161",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Property Overview",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "property_name,property_address",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

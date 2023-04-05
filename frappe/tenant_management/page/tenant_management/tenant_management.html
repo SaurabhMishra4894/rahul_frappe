@@ -1,0 +1,253 @@
+<div class="tenant_management">
+    <div class="app-header-navigation">
+        <div class="tabsfirst">
+            <div class="firstcard">
+                <div>
+                    <p>Total Income</p>
+                    <p class="ignore">(This Month)</p>
+                    <p>₹ {{ messages.total_data.total_income }}</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/128/9267/9267577.png"/>
+                </div>
+            </div>
+            <div class="firstcard">
+                <div>
+                    <p>Total Expenses</p>
+                    <p class="ignore">(This Month)</p>
+                    <p style="color: red">₹ {{ messages.total_data.total_expenses }}</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/128/2936/2936730.png"/>
+                </div>
+            </div>
+            <div class="firstcard">
+                <div>
+                    <p>Total Dues</p>
+                    <p>₹ {{ messages.total_data.total_dues }}</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/128/1426/1426526.png"/>
+                </div>
+            </div>
+
+            <!-- <a href="#" class="active"> Overview </a>
+            <a href="#" > Payments </a>
+            <a href="#"> Cards </a>
+            <a href="#"> Account </a>
+            <a href="#"> System </a>
+            <a href="#"> Business </a> -->
+        </div>
+    </div>
+    <!-- <div class="app-header-mobile">
+      <button class="icon-button large">
+        <i class="ph-list"></i>
+      </button>
+    </div> -->
+    <div class="app-body">
+        <div class="app-body-navigation">
+            <nav class="navigation">
+                <a href="#">
+                    <i class="ph-browsers"></i>
+                    <span>Create Property</span>
+                </a>
+                <a href="#">
+                    <i class="ph-check-square"></i>
+                    <span>Create Tenant</span>
+                </a>
+                <a href="#">
+                    <i class="ph-swap"></i>
+                    <span>Create User</span>
+                </a>
+                <a href="#">
+                    <i class="ph-file-text"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </div>
+        <div class="app-body-main-content">
+            <section class="service-section">
+
+                <div class="tiles">
+                    <article class="tile">
+                        <div class="tile-header">
+                            <i class="ph-lightning-light"></i>
+                            <h3>
+                                <span class="bigfont">View Properties</span>
+                                <span></span>
+                            </h3>
+                        </div>
+                        <a href="/app/property">
+                            <span>Click to view</span>
+                            <span class="icon-button">
+                  >
+                                <!-- <i class="fa-solid fa-caret-right"></i> -->
+                </span>
+                        </a>
+                    </article>
+                    <article class="tile">
+                        <div class="tile-header">
+                            <i class="ph-fire-simple-light"></i>
+                            <h3>
+                                <span>View Tenant</span>
+                                <span>Gazprom UA</span>
+                            </h3>
+                        </div>
+                        <a href="/app/tenant">
+                            <span>Click to view</span>
+                            <span class="icon-button">
+                  >
+                                <!-- <i class="ph-caret-right-bold"></i> -->
+                </span>
+                        </a>
+                    </article>
+
+                    <!-- </div> -->
+                    <!-- <div class="tiles"> -->
+                    <article class="tile">
+                        <div class="tile-header">
+                            <i class="ph-lightning-light"></i>
+                            <h3>
+                                <span>Employees</span>
+                                <span></span>
+                            </h3>
+                        </div>
+                        <a href="/app/employee">
+                            <span>Click to view</span>
+                            <span class="icon-button">
+                  >
+                                <!-- <i class="ph-caret-right-bold"></i> -->
+                </span>
+                        </a>
+                    </article>
+                    <article class="tile">
+                        <div class="tile-header">
+                            <i class="ph-fire-simple-light"></i>
+                            <h3>
+                                <span>Employee salary</span>
+                                <span></span>
+                            </h3>
+                        </div>
+                        <a href="/app/employee-salary">
+                            <span>Click to view</span>
+                            <span class="icon-button">
+                  >
+                                <!-- <i class="ph-caret-right-bold"></i> -->
+                </span>
+                        </a>
+                    </article>
+                    <article class="tile">
+                        <div class="tile-header">
+                            <i class="ph-file-light"></i>
+                            <h3>
+                                <span>Property Overview</span>
+                                <span></span>
+                            </h3>
+                        </div>
+                        <a href="/app/property-overview">
+                            <span>Click to view</span>
+                            <span class="icon-button">
+                  >
+                                <!-- <i class="ph-caret-right-bold"></i> -->
+                </span>
+                        </a>
+                    </article>
+                    <article class="tile">
+                        <div class="tile-header">
+                            <i class="ph-file-light"></i>
+                            <h3>
+                                <span>Tenant Bill Overview</span>
+                                <span></span>
+                            </h3>
+                        </div>
+                        <a href="/app/tenant-bill-overview">
+                            <span>Click to view</span>
+                            <span class="icon-button">
+                  >
+                                <!-- <i class="ph-caret-right-bold"></i> -->
+                </span>
+                        </a>
+                    </article>
+                </div>
+                <div class="service-section-footer">
+                </div>
+            </section>
+            <div id="container">
+                <h2>Income Expense Chart</h2>
+                <canvas id="myChart"></canvas>
+
+
+            </div>
+            <div class="container">
+                <ul class="responsive-table">
+                    <table class="table table-striped">
+                        <thead>
+                        <h2>Tenants with Dues</h2>
+                        <tr>
+                            <th>Tenant Id</th>
+                            <th>Tenant Name</th>
+                            <th>Property Name</th>
+                            <th>Amount Due</th>
+                        </tr>
+                        <thead>
+                        <tbody>
+                        {% for dues in messages.tenant_dues %}
+                            <tr>
+                                <td>{{ dues.tenant_id }}</td>
+                                <td>{{ dues.tenant_name }}</td>
+                                <td>{{ dues.property_name }}</td>
+                                <td>Rs {{ dues.amount_due }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById("myChart");
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ],
+                datasets: [
+                    {
+                        label: "Income",
+                        borderWidth: 1,
+                        data: [{{ messages.graph_data.income }}],
+                    },
+                    {
+                        label: "Expenses",
+                        borderWidth: 1,
+                        data: [{{ messages.graph_data.expenses }}],
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</div>

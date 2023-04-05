@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:property_id",
+ "creation": "2023-02-03 01:38:48.819009",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "property_id",
+  "property_name",
+  "property_address",
+  "total_room_available",
+  "occupied_rooms",
+  "vacant_rooms",
+  "column_break_5",
+  "delhi_jal_board_kno_number",
+  "gas_bp_number",
+  "bses_ca_number",
+  "divide_gas_bill_equally",
+  "divide_water_bill_equally",
+  "charge_per_unitelectricity",
+  "payment_cycle_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "property_address",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Property Address",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "occupied_rooms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Occupied Rooms",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "vacant_rooms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Vacant Rooms",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "property_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Property Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delhi_jal_board_kno_number",
+   "fieldtype": "Data",
+   "label": "Delhi Jal Board KNO Number"
+  },
+  {
+   "fieldname": "gas_bp_number",
+   "fieldtype": "Data",
+   "label": "Gas BP Number"
+  },
+  {
+   "fieldname": "bses_ca_number",
+   "fieldtype": "Data",
+   "label": "BSES CA Number"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "charge_per_unitelectricity",
+   "fieldtype": "Currency",
+   "label": "Charge Per Unit(Electricity)"
+  },
+  {
+   "default": "Yes",
+   "fieldname": "divide_gas_bill_equally",
+   "fieldtype": "Select",
+   "label": "Divide Gas Bill Equally",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "divide_water_bill_equally",
+   "fieldtype": "Select",
+   "label": "Divide Water Bill Equally",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "property_id",
+   "fieldtype": "Data",
+   "label": "Property ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_room_available",
+   "fieldtype": "Int",
+   "label": "Total Room Available",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "payment_cycle_date",
+   "fieldtype": "Select",
+   "label": "Payment Cycle Date",
+   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-03-27 14:35:09.158578",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Property",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "property_name,property_address",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
