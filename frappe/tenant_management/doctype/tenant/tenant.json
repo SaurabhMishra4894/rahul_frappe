@@ -19,7 +19,8 @@
   "base_rent",
   "concerned_property",
   "room_number",
-  "occupied_room"
+  "occupied_room",
+  "vehicle_number"
  ],
  "fields": [
   {
@@ -103,11 +104,16 @@
    "fieldname": "room_number",
    "fieldtype": "Data",
    "label": "Room Number"
+  },
+  {
+   "fieldname": "vehicle_number",
+   "fieldtype": "Data",
+   "label": "Vehicle Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-04 01:10:42.165043",
+ "modified": "2023-04-05 15:20:23.668258",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Tenant",
