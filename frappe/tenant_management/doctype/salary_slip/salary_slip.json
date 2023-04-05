@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SS-{employee}-{year}-{month}",
+ "creation": "2023-04-05 10:57:47.221114",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_salary",
+  "year",
+  "month",
+  "employee",
+  "employee_name",
+  "mode_of_payment",
+  "column_break_6rhqx",
+  "base_salary",
+  "misc_charges",
+  "total_salary",
+  "date_of_payment"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_salary",
+   "fieldtype": "Link",
+   "label": "Employee Salary",
+   "options": "Employee Salary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Year",
+   "read_only": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Month",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Data",
+   "label": "Mode of Payment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "base_salary",
+   "fieldtype": "Data",
+   "label": "Base Salary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "misc_charges",
+   "fieldtype": "Data",
+   "label": "Misc. Charges",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_salary",
+   "fieldtype": "Data",
+   "label": "Total Salary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_of_payment",
+   "fieldtype": "Date",
+   "label": "Date of Payment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6rhqx",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-05 11:38:17.235356",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Salary Slip",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

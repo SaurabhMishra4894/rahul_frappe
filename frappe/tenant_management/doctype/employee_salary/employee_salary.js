@@ -15,6 +15,7 @@ frappe.ui.form.on('Employee Salary', {
 				}
 			}).then((res) => {
 				if (res.message) {
+					frm.clear_table("employee_salary");
 					for (var emp in res.message) {
 						emp = res.message[emp];
 						var a = frm.add_child("employee_salary");
