@@ -4,14 +4,14 @@
 frappe.ui.form.on('Property', {
 	refresh: function (frm) {
 		if (!frm.doc.__islocal) {
-			frappe.call({
-				method: "frappe.tenant_management.doctype.property.property.validateRoomCount",
-				args: {
-					"name": frm.doc.name
-				},
-				callback: function () {
-				}
-			});
+			// frappe.call({
+			// 	method: "frappe.tenant_management.doctype.property.property.validateRoomCount",
+			// 	args: {
+			// 		"name": frm.doc.name
+			// 	},
+			// 	callback: function () {
+			// 	}
+			// });
 		}
 	},
 	total_room_available: function (frm) {

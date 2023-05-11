@@ -93,7 +93,7 @@
    "in_standard_filter": 1,
    "label": "Concerned Property",
    "options": "Property",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "occupied_room",
@@ -101,19 +101,19 @@
    "label": "Occupied Rooms"
   },
   {
-   "fieldname": "room_number",
-   "fieldtype": "Data",
-   "label": "Room Number"
-  },
-  {
    "fieldname": "vehicle_number",
    "fieldtype": "Data",
    "label": "Vehicle Number"
+  },
+  {
+   "fieldname": "room_number",
+   "fieldtype": "Data",
+   "label": "Room Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-05 15:20:23.668258",
+ "modified": "2023-05-11 22:32:54.727979",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Tenant",

@@ -20,7 +20,9 @@
   "divide_gas_bill_equally",
   "divide_water_bill_equally",
   "charge_per_unitelectricity",
-  "payment_cycle_date"
+  "payment_cycle_date",
+  "section_break_tzmjd",
+  "property_rooms"
  ],
  "fields": [
   {
@@ -36,6 +38,7 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Occupied Rooms",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -111,11 +114,22 @@
    "fieldtype": "Select",
    "label": "Payment Cycle Date",
    "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28"
+  },
+  {
+   "fieldname": "property_rooms",
+   "fieldtype": "Table",
+   "label": "Property Rooms",
+   "options": "Property Rooms"
+  },
+  {
+   "fieldname": "section_break_tzmjd",
+   "fieldtype": "Section Break",
+   "label": "Rooms"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-27 14:35:09.158578",
+ "modified": "2023-05-12 01:47:21.819952",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property",

@@ -4,7 +4,6 @@
 import frappe
 from frappe.model.document import Document
 from datetime import datetime
-from frappe.tenant_management.doctype.property.property import validateRoomCount
 
 
 class Tenant(Document):
@@ -19,13 +18,10 @@ class Tenant(Document):
 					"total_occupied_room"] - old_count.occupied_room + self.occupied_room) > properties.total_room_available:
 				frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
 			else:
-				properties.occupied_rooms = tenants_related[0][
-												"total_occupied_room"] - old_count.occupied_room + self.occupied_room
-
-				properties.vacant_rooms = properties.total_room_available - (tenants_related[0][
-												"total_occupied_room"] - old_count.occupied_room + self.occupied_room)
-				print("<<<<", properties.total_room_available, properties.occupied_rooms,properties.vacant_rooms)
-				properties.save()
+				occupied_rooms = tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room
+				vacant_rooms = properties.total_room_available - (tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room)
+				frappe.db.sql("""UPDATE `tabProperty` set occupied_rooms={ocr}, vacant_rooms={vr}
+				where name= '{name}';""".format(ocr=occupied_rooms, vr=vacant_rooms, name = self.concerned_property))
 				frappe.db.commit()
 
 

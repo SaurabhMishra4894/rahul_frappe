@@ -8,6 +8,25 @@ class Property(Document):
 	def validate(self):
 		if self.occupied_rooms > self.total_room_available:
 			frappe.throw("Occupied rooms can't be greater than total room available")
+		if self.total_room_available > 0:
+			tenants_related = frappe.db.sql(
+				"""SELECT sum(occupied_room) as total_occupied_room from `tabTenant` where status="Active Tenant" and concerned_property ='{concerned_property}'""".format(
+					concerned_property=self.name), as_dict=True)
+			occupied_room = tenants_related[0]["total_occupied_room"]
+			if occupied_room > self.total_room_available:
+				frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
+			self.occupied_rooms = occupied_room
+			self.vacant_rooms = self.total_room_available - self.occupied_rooms
+
+	def on_update(self):
+		for property_room in self.property_rooms:
+			tenant = frappe.get_doc("Tenant", property_room.assign_to)
+			if tenant.room_number != property_room.room_name:
+				tenant.room_number = property_room.room_name
+				tenant.concerned_property = self.name
+				tenant.save()
+				frappe.db.commit()
+
 
 @frappe.whitelist()
 def validateRoomCount(name):
