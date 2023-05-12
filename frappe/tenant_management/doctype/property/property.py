@@ -13,10 +13,11 @@ class Property(Document):
 				"""SELECT sum(occupied_room) as total_occupied_room from `tabTenant` where status="Active Tenant" and concerned_property ='{concerned_property}'""".format(
 					concerned_property=self.name), as_dict=True)
 			occupied_room = tenants_related[0]["total_occupied_room"]
-			if occupied_room > self.total_room_available:
-				frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
-			self.occupied_rooms = occupied_room
-			self.vacant_rooms = self.total_room_available - self.occupied_rooms
+			if occupied_room:
+				if occupied_room > self.total_room_available:
+					frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
+				self.occupied_rooms = occupied_room
+				self.vacant_rooms = self.total_room_available - self.occupied_rooms
 
 	def on_update(self):
 		for property_room in self.property_rooms:
