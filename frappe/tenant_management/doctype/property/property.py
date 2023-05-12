@@ -21,12 +21,13 @@ class Property(Document):
 
 	def on_update(self):
 		for property_room in self.property_rooms:
-			tenant = frappe.get_doc("Tenant", property_room.assign_to)
-			if tenant.room_number != property_room.room_name:
-				tenant.room_number = property_room.room_name
-				tenant.concerned_property = self.name
-				tenant.save()
-				frappe.db.commit()
+			if property_room.assign_to:
+				tenant = frappe.get_doc("Tenant", property_room.assign_to)
+				if tenant.room_number != property_room.room_name:
+					tenant.room_number = property_room.room_name
+					tenant.concerned_property = self.name
+					tenant.save()
+					frappe.db.commit()
 
 
 @frappe.whitelist()
