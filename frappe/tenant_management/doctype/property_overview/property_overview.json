@@ -37,12 +37,7 @@
   "amount_after_due_date",
   "amount_to_be_paid",
   "bses_rajdhani_section",
-  "total_demand",
-  "pending_settlement",
-  "installment_not_yet_due",
-  "column_break_33",
-  "due_date",
-  "total_payable"
+  "table_lscrr"
  ],
  "fields": [
   {
@@ -222,36 +217,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "total_demand",
-   "fieldtype": "Data",
-   "label": "Total Demand",
-   "read_only": 1
-  },
-  {
-   "fieldname": "pending_settlement",
-   "fieldtype": "Data",
-   "label": "Pending Settlement",
-   "read_only": 1
-  },
-  {
-   "fieldname": "installment_not_yet_due",
-   "fieldtype": "Data",
-   "label": "Installment Not Yet Due",
-   "read_only": 1
-  },
-  {
-   "fieldname": "due_date",
-   "fieldtype": "Data",
-   "label": "Due Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "total_payable",
-   "fieldtype": "Data",
-   "label": "Total Payable",
-   "read_only": 1
-  },
-  {
    "fieldname": "column_break_18",
    "fieldtype": "Column Break"
   },
@@ -260,19 +225,20 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_33",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "gas_bill_name",
    "fieldtype": "Data",
    "label": "Bill Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "table_lscrr",
+   "fieldtype": "Table",
+   "options": "Property Overview BSES"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-06 12:37:10.088367",
+ "modified": "2023-07-18 02:05:09.711794",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property Overview",

@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-18 02:04:13.010277",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "total_demand",
+  "pending_settlement",
+  "installment_not_yet_due",
+  "column_break_vmr5z",
+  "due_date",
+  "total_payable",
+  "bill_pdf"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "total_demand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Demand",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "pending_settlement",
+   "fieldtype": "Data",
+   "label": "Pending Settlement",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "installment_not_yet_due",
+   "fieldtype": "Data",
+   "label": "Installment Not Yet Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vmr5z",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "due_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_payable",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Payable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bill_pdf",
+   "fieldtype": "Attach",
+   "label": "Bill PDF"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-07-18 02:08:35.521594",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Property Overview BSES",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

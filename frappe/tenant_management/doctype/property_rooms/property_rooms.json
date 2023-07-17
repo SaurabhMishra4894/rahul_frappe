@@ -9,7 +9,8 @@
  "field_order": [
   "room_name",
   "assign_to",
-  "status"
+  "status",
+  "related_bses_ca_number"
  ],
  "fields": [
   {
@@ -32,12 +33,18 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "Occupied\nUnOccupied"
+  },
+  {
+   "fieldname": "related_bses_ca_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Related BSES CA Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-05-12 15:08:07.949201",
+ "modified": "2023-07-18 02:00:52.167050",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property Rooms",
