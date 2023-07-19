@@ -8,9 +8,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 def rundjb(kno):
 	from selenium import webdriver
 	from selenium.webdriver.chrome.options import Options
-	chrome_options = Options()
-	chrome_options.add_argument("--headless")
-	driver = webdriver.Chrome(chrome_options=chrome_options)
+	options = Options()
+	options.add_argument("--headless=new")
+	driver = webdriver.Chrome(options=options)
 	driver.implicitly_wait(0.5)
 	driver.get("https://djb.gov.in/DJBRMSPortal/portal/payOnline.html")
 	time.sleep(5)
@@ -36,9 +36,9 @@ def rundjb(kno):
 def runigl(bp_number):
 	from selenium import webdriver
 	from selenium.webdriver.chrome.options import Options
-	chrome_options = Options()
-	chrome_options.add_argument("--headless")
-	driver = webdriver.Chrome(chrome_options=chrome_options)
+	options = Options()
+	options.add_argument("--headless=new")
+	driver = webdriver.Chrome(options=options)
 	driver.implicitly_wait(0.5)
 	driver.get(
 		"https://webonline.igl.co.in:8077/sap/bc/bsp/sap/zumcui5/webcontent/index.html?directPayment&_ga=2.232730847.1392481746.1673078950-98815281.1673078950#page|%7B%22id%22%3A%22instaPayment%22%7D|id-1673080370177-2|0")
@@ -65,10 +65,9 @@ def runigl(bp_number):
 def runbses(canumber):
 	from selenium import webdriver
 	from selenium.webdriver.chrome.options import Options
-	chrome_options = Options()
-	chrome_options.add_argument("--headless")
-	driver = webdriver.Chrome(chrome_options=chrome_options)
-	driver.implicitly_wait(0.5)
+	options = Options()
+	options.add_argument("--headless=new")
+	driver = webdriver.Chrome(options=options)
 	driver.get(
 		f"https://www.bsesdelhi.com/web/brpl/quick-pay-payment?p_p_id=com_bses_pay_now_portlet_BsesPayNowWebPortlet&p_p_lifecycle=0&_com_bses_pay_now_portlet_BsesPayNowWebPortlet_caNo={canumber}".format(
 			canumber=canumber))
@@ -101,9 +100,9 @@ def runbses(canumber):
 def runexcitel():
 	from selenium import webdriver
 	from selenium.webdriver.chrome.options import Options
-	chrome_options = Options()
-	chrome_options.add_argument("--headless")
-	driver = webdriver.Chrome(chrome_options=chrome_options)
+	options = Options()
+	options.add_argument("--headless=new")
+	driver = webdriver.Chrome(options=options)
 	driver.implicitly_wait(0.5)
 	driver.get(
 		"https://my.excitel.com/login")
