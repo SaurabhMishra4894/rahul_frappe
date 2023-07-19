@@ -132,18 +132,16 @@ if __name__ == '__main__':
 	r = requests.get(url=URL)
 	# extracting data in json format
 	data = r.json()
-
 	if data.get("message"):
 		for property in data.get("message"):
-			result = {"property": property.get("name"), "djb": {}, "gas": {}, "bses": {}}
+			result = {"property": property.get("name"), "djb": {}, "gas": {}, "bses": []}
 			if property.get("delhi_jal_board_kno_number"):
 				result["djb"] = rundjb(kno=property.get("delhi_jal_board_kno_number"))
 			if property.get("gas_bp_number"):
 				result["gas"] = runigl(bp_number=property.get("gas_bp_number"))
-			if property.get("bses_ca_number"):
-				result["bses"] = runbses(canumber=property.get("bses_ca_number"))
+			for property_bses in property.get("bses_ca_number").split(","):
+				if property.get("bses_ca_number"):
+					result["bses"].append(runbses(canumber=property_bses.strip()))
 			# runexcitel()
-
-			x = requests.post(base_url + "/api/method/frappe.tenant_management.doctype.property_overview"
-										 ".property_overview.create_property_overview", json={"data": result})
+			x = requests.post(base_url + "/api/method/frappe.tenant_management.doctype.property_overview.property_overview.create_property_overview", json={"data": result})
 			print(x.text)
