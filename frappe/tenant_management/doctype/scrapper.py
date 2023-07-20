@@ -74,6 +74,7 @@ def runbses(canumber):
 	driver.implicitly_wait(5)
 	time.sleep(5)
 	final_data = {
+		"ca_number" : canumber,
 		"total_demand": driver.find_element(By.XPATH,
 											"//*[@id='_com_bses_pay_now_portlet_BsesPayNowWebPortlet_totalDemand']").get_attribute(
 			'value'),
@@ -137,7 +138,7 @@ def runexcitel():
 
 
 if __name__ == '__main__':
-	base_url = "http://localhost:8000"
+	base_url = "http://172.232.64.45:8000"
 	URL = base_url + "/api/method/frappe.tenant_management.doctype.property_overview.property_overview.return_property_list"
 	# sending get request and saving the response as response object
 	r = requests.get(url=URL)

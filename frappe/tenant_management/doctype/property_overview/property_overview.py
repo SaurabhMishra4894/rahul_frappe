@@ -137,6 +137,7 @@ def create_property_overview(**args):
 		for p_bses in bses:
 			total_bses = total_bses + float(p_bses.get("total_amount"))
 			property_overview.append('table_lscrr', {
+				"ca_number" : p_bses.get("ca_number"),
 				"total_demand": p_bses.get("total_demand") or 0,
 				"pending_settlement": p_bses.get("pending_settlement") or 0,
 				"installment_not_yet_due": p_bses.get("installment_not_yet_due") or "",
