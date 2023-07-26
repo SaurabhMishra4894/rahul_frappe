@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "property",
+  "status",
   "month",
   "year",
   "property_name",
@@ -234,11 +235,20 @@
    "fieldname": "table_lscrr",
    "fieldtype": "Table",
    "options": "Property Overview BSES"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nSubmitted\nClosed",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-18 02:05:09.711794",
+ "modified": "2023-07-27 02:24:01.509707",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property Overview",

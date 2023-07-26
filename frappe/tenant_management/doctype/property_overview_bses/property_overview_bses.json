@@ -13,7 +13,8 @@
   "column_break_vmr5z",
   "due_date",
   "total_payable",
-  "bill_pdf"
+  "bill_pdf",
+  "bill_attached"
  ],
  "fields": [
   {
@@ -67,12 +68,20 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "CA Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "bill_attached",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Bill Attached",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-07-20 05:48:16.881949",
+ "modified": "2023-07-27 02:02:58.016095",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property Overview BSES",
