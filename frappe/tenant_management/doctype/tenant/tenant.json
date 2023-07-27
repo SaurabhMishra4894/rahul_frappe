@@ -92,8 +92,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Concerned Property",
-   "options": "Property",
-   "read_only": 1
+   "options": "Property"
   },
   {
    "fieldname": "occupied_room",
@@ -113,7 +112,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-11 22:32:54.727979",
+ "modified": "2023-07-28 03:31:23.165232",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Tenant",

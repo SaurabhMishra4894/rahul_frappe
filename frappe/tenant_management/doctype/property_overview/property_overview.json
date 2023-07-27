@@ -38,7 +38,12 @@
   "amount_after_due_date",
   "amount_to_be_paid",
   "bses_rajdhani_section",
-  "table_lscrr"
+  "table_lscrr",
+  "expenses_section",
+  "employee_related",
+  "miscellaneous",
+  "column_break_7eutj",
+  "employee_salary"
  ],
  "fields": [
   {
@@ -244,11 +249,39 @@
    "label": "Status",
    "options": "Open\nSubmitted\nClosed",
    "read_only": 1
+  },
+  {
+   "fieldname": "expenses_section",
+   "fieldtype": "Section Break",
+   "label": "Expenses"
+  },
+  {
+   "fieldname": "employee_related",
+   "fieldtype": "Link",
+   "label": "Employee Related",
+   "options": "Employee"
+  },
+  {
+   "default": "0",
+   "fetch_from": "employee_related.salary",
+   "fieldname": "employee_salary",
+   "fieldtype": "Float",
+   "label": "Employee Salary"
+  },
+  {
+   "default": "0",
+   "fieldname": "miscellaneous",
+   "fieldtype": "Float",
+   "label": "Miscellaneous"
+  },
+  {
+   "fieldname": "column_break_7eutj",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-27 02:24:01.509707",
+ "modified": "2023-07-28 02:56:20.606717",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Property Overview",
