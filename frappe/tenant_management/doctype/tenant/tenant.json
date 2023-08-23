@@ -20,7 +20,8 @@
   "concerned_property",
   "room_number",
   "occupied_room",
-  "vehicle_number"
+  "vehicle_number",
+  "full_and_final_amount"
  ],
  "fields": [
   {
@@ -108,11 +109,18 @@
    "fieldname": "room_number",
    "fieldtype": "Data",
    "label": "Room Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "full_and_final_amount",
+   "fieldtype": "Data",
+   "label": "Full and Final Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-28 03:31:23.165232",
+ "modified": "2023-08-23 17:20:37.209294",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Tenant",

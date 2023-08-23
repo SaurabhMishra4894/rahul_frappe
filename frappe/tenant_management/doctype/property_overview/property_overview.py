@@ -10,6 +10,34 @@ from six import string_types
 from frappe import responses
 
 
+month_dict = {
+	1 : "January",
+	2 : "Feburary",
+	3 : "March",
+	4 : "April",
+	5 : "May",
+	6 : "June",
+	7 : "July",
+	8 : "August",
+	9 : "September",
+	10 : "October",
+	11 : "November",
+	12 : "December"
+}
+month_dict_rev = {
+	"January" : 1,
+	"Feburary" : 2,
+	"March" : 3,
+	"April" : 4,
+	"May" : 5,
+	"June" : 6,
+	"July" : 7,
+	"August" : 8,
+	"September" : 9,
+	"October" : 10,
+	"November" : 11,
+	"December" : 12
+}
 class PropertyOverview(Document):
 	def after_insert(self):
 		tenants = frappe.db.get_all("Tenant", fields="*", filters={"status": "Active Tenant",
@@ -31,20 +59,37 @@ class PropertyOverview(Document):
 			tenant_overview.base_rent = tenant.base_rent
 			tenant_overview.previous_electrical_unit = ""
 			tenant_overview.current_electrical_unit = ""
-			tenant_overview.unit_consumed = ""
+			tenant_overview.unit_consumed = 0
 			tenant_overview.charge_per_unit = property.charge_per_unitelectricity
 			tenant_overview.total_electrical_bill = ""
-			tenant_overview.misc_charges = ""
-			tenant_overview.total_rent = ""
+			tenant_overview.misc_charges = 0
+			tenant_overview.previous_dues = 0
+			previous_month = month_dict[month_dict_rev[self.month]-1] if month_dict_rev[self.month]-1 != 0 else "December"
+			previous_year = self.year if month_dict_rev[self.month]-1 != 0 else previous_year-1
+			if frappe.db.exists("Tenant Bill Overview",
+								{"rent_year": previous_year, "rent_month": previous_month, "tenant": tenant.name}):
+				previous_tenant_overview = frappe.get_doc("Tenant Bill Overview",
+												 {"rent_year": previous_year, "rent_month": previous_month, "tenant": tenant.name})
+				tenant_overview.previous_dues = previous_tenant_overview.previous_dues
+
+			if property.divide_gas_bill_equally:
+				tenant_overview.gas_charges = float(self.total_gas_bills) / len(tenants)
+			if property.divide_water_bill_equally:
+				tenant_overview.water_charges = float(self.total_water_bills) / len(tenants)
+			tenant_overview.total_rent = tenant_overview.previous_dues + tenant_overview.base_rent + \
+										 (tenant_overview.unit_consumed * tenant_overview.charge_per_unit) +\
+										 tenant_overview.misc_charges + tenant_overview.gas_charges +\
+										 tenant_overview.water_charges
 			tenant_overview.amount_paid = ""
 			tenant_overview.dues = ""
 			tenant_overview.mode_of_payment = ""
 			tenant_overview.date_of_payment = ""
 			tenant_overview.paid_to = ""
-			if property.divide_gas_and_water_bill_equally == "Yes":
-				tenant_overview.gas_charges = float(self.total_gas_bills) / len(tenants)
-				tenant_overview.water_charges = float(self.total_water_bills) / len(tenants)
-				tenant_overview.electricity_charges = float(self.total_electical_bills) / len(tenants)
+
+			# if property.divide_gas_and_water_bill_equally == "Yes":
+			# 	tenant_overview.gas_charges = float(self.total_gas_bills) / len(tenants)
+			# 	tenant_overview.water_charges = float(self.total_water_bills) / len(tenants)
+			# 	tenant_overview.electricity_charges = float(self.total_electical_bills) / len(tenants)
 			tenant_overview.property_overview = self.name
 			tenant_overview.save()
 			frappe.db.commit()

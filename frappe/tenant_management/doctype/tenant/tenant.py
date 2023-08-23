@@ -19,10 +19,12 @@ class Tenant(Document):
 						"total_occupied_room"] - old_count.occupied_room + self.occupied_room) > properties.total_room_available:
 					frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
 				else:
-					occupied_rooms = tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room
-					vacant_rooms = properties.total_room_available - (tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room)
+					occupied_rooms = tenants_related[0][
+										 "total_occupied_room"] - old_count.occupied_room + self.occupied_room
+					vacant_rooms = properties.total_room_available - (
+						tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room)
 					frappe.db.sql("""UPDATE `tabProperty` set occupied_rooms={ocr}, vacant_rooms={vr}
-					where name= '{name}';""".format(ocr=occupied_rooms, vr=vacant_rooms, name = self.concerned_property))
+					where name= '{name}';""".format(ocr=occupied_rooms, vr=vacant_rooms, name=self.concerned_property))
 					frappe.db.commit()
 
 
@@ -67,3 +69,22 @@ def tenant_data():
 			]
 		},
 		"tenant_dues": to_array}
+
+
+@frappe.whitelist()
+def full_and_final(tenant):
+	tenant = frappe.get_doc("Tenant", tenant)
+	if tenant.status == "Active Tenant":
+		tenant_overview_latest = frappe.db.sql("""
+				SELECT * from `tabTenant Bill Overview` where tenant="{tenant}" order by creation DESC LIMIT 1
+		""".format(tenant=tenant.name), as_dict=1)
+		if len(tenant_overview_latest) > 0:
+			tenant.full_and_final_amount = tenant_overview_latest[0]["dues"]
+		else:
+			tenant.full_and_final_amount = 0
+
+		tenant.status = "Ex-tenant"
+		tenant.save()
+	else:
+		return False
+	return True
