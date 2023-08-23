@@ -15,16 +15,22 @@ class Tenant(Document):
 					concerned_property=self.concerned_property), as_dict=True)
 			if frappe.db.exists("Tenant", self.name):
 				old_count = frappe.get_doc("Tenant", self.name)
-				if (tenants_related[0][
-						"total_occupied_room"] - old_count.occupied_room + self.occupied_room) > properties.total_room_available:
-					frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
+				if len(tenants_related) > 0:
+					if (tenants_related[0][
+							"total_occupied_room"] - old_count.occupied_room + self.occupied_room) > properties.total_room_available:
+						frappe.throw("Total Room Available for this property cannot be greater than Total Occupied Room")
+					else:
+						occupied_rooms = tenants_related[0][
+											 "total_occupied_room"] - old_count.occupied_room + self.occupied_room
+						vacant_rooms = properties.total_room_available - (
+							tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room)
+						frappe.db.sql("""UPDATE `tabProperty` set occupied_rooms={ocr}, vacant_rooms={vr}
+						where name= '{name}';""".format(ocr=occupied_rooms, vr=vacant_rooms, name=self.concerned_property))
+						frappe.db.commit()
 				else:
-					occupied_rooms = tenants_related[0][
-										 "total_occupied_room"] - old_count.occupied_room + self.occupied_room
-					vacant_rooms = properties.total_room_available - (
-						tenants_related[0]["total_occupied_room"] - old_count.occupied_room + self.occupied_room)
 					frappe.db.sql("""UPDATE `tabProperty` set occupied_rooms={ocr}, vacant_rooms={vr}
-					where name= '{name}';""".format(ocr=occupied_rooms, vr=vacant_rooms, name=self.concerned_property))
+											where name= '{name}';""".format(ocr=1, vr=properties.total_room_available-self.occupied_room,
+																			name=self.concerned_property))
 					frappe.db.commit()
 
 
